@@ -1,11 +1,6 @@
 package com.uc.ms_security.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +21,10 @@ public class Profile {
     @Column(nullable = false, length = 30)
     private String phone;
 
-    @Column(name = "birth_date", nullable = false)
+    @Column(nullable = false)
     private LocalDate birthDate;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
+    private User user;
 }

@@ -3,7 +3,6 @@ package com.uc.ms_security.dto.profile;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +10,9 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public abstract class BaseProfileDTO {
+public class ProfileRequestDTO {
 
     @NotBlank(message = "El teléfono es obligatorio")
-    @Size(max = 30, message = "El teléfono no puede superar 30 caracteres")
     private String phone;
 
     @NotNull(message = "La fecha de nacimiento es obligatoria")
